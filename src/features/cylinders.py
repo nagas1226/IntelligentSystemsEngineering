@@ -2,8 +2,9 @@ from typing import Union
 
 import polars as pl
 
+from src.config.preprocess import TargetEncoderConfig
 from src.features.base_encoder import BaseEncoder
-from src.features.target_encoding import TargetEncoder, TargetEncoderConfig
+from src.features.target_encoding import TargetEncoder
 
 
 class CylindersEncoder(BaseEncoder):

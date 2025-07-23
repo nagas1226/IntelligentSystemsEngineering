@@ -11,7 +11,7 @@ from typing import Optional
 import polars as pl
 from sklearn.base import BaseEstimator, TransformerMixin
 
-from src.features.target_encoding import TargetEncoderConfig
+from src.config.preprocess import TargetEncoderConfig
 
 
 class BaseEncoder(BaseEstimator, TransformerMixin, ABC):
