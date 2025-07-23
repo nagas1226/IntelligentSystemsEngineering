@@ -3,13 +3,6 @@ import polars as pl
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
-class TargetEncoderConfig:
-    def __init__(self, smoothing=1.0, min_samples_leaf=1, noise_level=0.01):
-        self.smoothing = smoothing
-        self.min_samples_leaf = min_samples_leaf
-        self.noise_level = noise_level
-
-
 class TargetEncoder(BaseEstimator, TransformerMixin):
     def __init__(self, smoothing=1.0, min_samples_leaf=1, noise_level=0.01):
         self.smoothing = smoothing

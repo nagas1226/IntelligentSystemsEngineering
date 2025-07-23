@@ -15,7 +15,7 @@ from src.config.base_config import (
     TypeEncoderConfig,
     YearEncoderConfig,
 )
-from src.features.target_encoding import TargetEncoderConfig
+from src.config.preprocess import TargetEncoderConfig
 
 
 def get_default_config() -> PreprocessorConfig:

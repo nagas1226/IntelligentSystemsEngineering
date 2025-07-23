@@ -5,7 +5,7 @@ Base configuration classes for encoders and preprocessing.
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
-from src.features.target_encoding import TargetEncoderConfig
+from src.config.preprocess import TargetEncoderConfig
 
 
 @dataclass
