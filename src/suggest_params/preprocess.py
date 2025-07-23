@@ -99,7 +99,7 @@ def create_type_config(target_encoder_config: TargetEncoderConfig):
     return TypeEncoderConfig(target_encoder_config=target_encoder_config)
 
 
-def suggest_target_encoding_params(trial: optuna.Trial):
+def suggest_target_encoding_params(trial: optuna.Trial) -> TargetEncoderConfig:
     """Optunaトライアルからターゲットエンコーディングのパラメータを提案"""
     return TargetEncoderConfig(
         smoothing=trial.suggest_float("smoothing", 0.01, 1.0, log=True),
