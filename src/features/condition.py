@@ -1,5 +1,3 @@
-from typing import Union
-
 import polars as pl
 
 from src.features.base_encoder import BaseEncoder
@@ -10,7 +8,7 @@ class ConditionEncoder(BaseEncoder):
     def __init__(
         self,
         use_target_encoding: bool = True,
-        target_encoder_config: Union[TargetEncoderConfig, None] = None,
+        target_encoder_config: None | TargetEncoderConfig = None,
     ):
         super().__init__(use_target_encoding, target_encoder_config)
 
@@ -33,14 +31,14 @@ class ConditionEncoder(BaseEncoder):
             .alias("condition_numerical")
         )
 
-    def fit(self, X: pl.DataFrame, y: pl.Series) -> "ConditionEncoder":
+    def fit(self, X: pl.DataFrame, y: pl.DataFrame) -> "ConditionEncoder":
         if self.use_target_encoding:
             self.target_encoder = TargetEncoder(
                 smoothing=self.target_encoder_config.smoothing,
                 min_samples_leaf=self.target_encoder_config.min_samples_leaf,
                 noise_level=self.target_encoder_config.noise_level,
             )
-            self.target_encoder.fit(X["condition"].to_numpy(), y.to_numpy())
+            self.target_encoder.fit(X.select("condition").to_numpy(), y.to_numpy())
         return self
 
     def transform(self, X: pl.DataFrame) -> pl.DataFrame:
@@ -51,13 +49,13 @@ class ConditionEncoder(BaseEncoder):
                 pl.Series(
                     name="condition_te",
                     values=self.target_encoder.transform(
-                        result["condition"].to_numpy()
+                        X.select("condition").to_numpy()
                     ),
                 )
             )
 
         return result.drop("condition")
 
-    def fit_transform(self, X: pl.DataFrame, y: pl.Series) -> pl.DataFrame:
+    def fit_transform(self, X: pl.DataFrame, y: pl.DataFrame) -> pl.DataFrame:
         self.fit(X, y)
         return self.transform(X)
