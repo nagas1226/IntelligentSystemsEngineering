@@ -1,0 +1,12 @@
+objective: regression
+metric: rmse
+verbosity: -1
+boosting_type: gbdt
+num_leaves: 56
+max_depth: 24
+learning_rate: 0.01873850883762116
+n_estimators: 448
+min_child_samples: 7
+feature_fraction: 0.9757830530829983
+bagging_fraction: 0.817477181736378
+bagging_freq: 7
