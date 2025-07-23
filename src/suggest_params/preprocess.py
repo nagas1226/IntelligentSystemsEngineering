@@ -18,11 +18,11 @@ from src.config.preprocess import (
 
 
 def suggest_preprocessor_config(
-    trial: optuna.Trial, task: Literal["regression", "classification"]
+    trial: optuna.Trial, task: Literal["regression", "anomaly_detection"]
 ) -> PreprocessorConfig:
     """OptunaトライアルからPreprocessorConfigを生成"""
-    if task not in ["regression", "classification"]:
-        raise ValueError("task must be either 'regression' or 'classification'")
+    if task not in ["regression", "anomaly_detection"]:
+        raise ValueError("task must be either 'regression' or 'anomaly_detection'")
 
     if task == "regression":
         remove_outliers_val = False
