@@ -24,7 +24,7 @@ class YearEncoder(BaseEncoder):
             .alias("is_1975_or_later")
         )
 
-    def fit(self, X: pl.DataFrame, y: pl.Series) -> "YearEncoder":
+    def fit(self, X: pl.DataFrame, y: pl.DataFrame) -> "YearEncoder":
         return self
 
     def transform(self, X: pl.DataFrame) -> pl.DataFrame:

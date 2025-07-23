@@ -56,6 +56,6 @@ class TransmissionEncoder(BaseEncoder):
 
         return result.drop("transmission")
 
-    def fit_transform(self, X: pl.DataFrame, y: pl.Series) -> pl.DataFrame:
+    def fit_transform(self, X: pl.DataFrame, y: pl.DataFrame) -> pl.DataFrame:
         self.fit(X, y)
         return self.transform(X)

@@ -22,14 +22,16 @@ class CylindersEncoder(BaseEncoder):
             .alias("cylinders_numerical")
         )
 
-    def fit(self, X: pl.DataFrame, y: pl.Series) -> "CylindersEncoder":
+    def fit(self, X: pl.DataFrame, y: pl.DataFrame) -> "CylindersEncoder":
         if self.use_target_encoding:
             self.target_encoder = TargetEncoder(
                 smoothing=self.target_encoder_config.smoothing,
                 min_samples_leaf=self.target_encoder_config.min_samples_leaf,
                 noise_level=self.target_encoder_config.noise_level,
             )
-            self.target_encoder.fit(X.to_numpy(), y.to_numpy())
+            self.target_encoder.fit(
+                X.select("cylinders").to_numpy(), y.select("price").to_numpy()
+            )
         return self
 
     def transform(self, X: pl.DataFrame) -> pl.DataFrame:
