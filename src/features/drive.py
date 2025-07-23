@@ -17,7 +17,7 @@ class DriveEncoder(BaseEncoder):
         super().__init__(use_target_encoding, target_encoder_config)
         self.use_label_encoding = use_label_encoding
 
-    def fit(self, X: pl.DataFrame, y: pl.Series) -> "DriveEncoder":
+    def fit(self, X: pl.DataFrame, y: pl.DataFrame) -> "DriveEncoder":
         if self.use_label_encoding:
             self.label_encoder = LabelEncoder()
             self.label_encoder.fit(X.to_numpy().ravel())
@@ -28,7 +28,7 @@ class DriveEncoder(BaseEncoder):
                 min_samples_leaf=self.target_encoder_config.min_samples_leaf,
                 noise_level=self.target_encoder_config.noise_level,
             )
-            self.target_encoder.fit(X.to_numpy(), y.to_numpy())
+            self.target_encoder.fit(X.to_numpy(), y.select("price").to_numpy())
         return self
 
     def transform(self, X: pl.DataFrame) -> pl.DataFrame:
