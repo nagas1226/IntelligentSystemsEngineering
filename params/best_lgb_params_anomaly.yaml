@@ -1,0 +1,12 @@
+objective: binary
+metric: auc
+verbosity: -1
+boosting_type: gbdt
+num_leaves: 54
+max_depth: 16
+learning_rate: 0.030273585973417196
+n_estimators: 498
+min_child_samples: 100
+feature_fraction: 0.9972839660320763
+bagging_fraction: 0.43304728757824706
+bagging_freq: 5

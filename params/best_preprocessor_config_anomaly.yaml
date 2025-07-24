@@ -1,0 +1,72 @@
+condition_encoder_config:
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+cylinder_encoder_config:
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+drive_encoder_config:
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+fuel_encoder_config:
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+manufacturer_encoder_config:
+  use_grouping: true
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+paint_color_encoder_config:
+  use_grouping: true
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+state_encoder_config:
+  use_grouping: true
+  use_top_tier_flag: true
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+transmission_encoder_config:
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+type_encoder_config:
+  use_grouping: true
+  use_label_encoding: true
+  use_target_encoding: true
+  target_encoder_config:
+    smoothing: 0.1934691069313873
+    min_samples_leaf: 7
+    noise_level: 0.020846183423295046
+year_encoder_config:
+  use_1987_flag: true
+  use_1975_flag: true
+price_upper_bound: .inf
+price_lower_bound: 0.0
+remove_outliers_val: false
